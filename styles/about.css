@@ -1,0 +1,74 @@
+main {
+    display: grid;
+
+    .swap {
+        display: grid;
+
+        h1 {
+            justify-self: center;
+            align-self: center;
+            z-index: 1;
+            opacity: 1;
+            animation: fade-out 1s ease 2.5s forwards;
+        }
+
+        .img-bio {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            gap: var(--space-md);
+            opacity: 0;
+            animation: fade-in 1s ease 3s forwards;
+
+            /* Use magic numbers for nitpicky layouts */
+            img {
+                display: block;
+                width: 100%;
+                height: auto;
+                padding: 0 5%;
+                filter: drop-shadow(1em 1em 0.5em gray);
+            }
+
+            p {
+                display: block;
+                font-size: 1.1rem;
+                line-height: 1.9rem;
+                padding: 0 5%;
+
+                .name {
+                    display: block;
+                    font-size: 5rem;
+                    font-weight: 1000;
+                    line-height: 9rem;
+                }
+            }
+        }
+
+        h1, .img-bio {
+            grid-area: 1 / 1;
+        }
+    }
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+    }    
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    main .swap .img-bio {
+        flex-direction: row;
+
+        img {
+            width: 50%;
+        }
+    }
+}

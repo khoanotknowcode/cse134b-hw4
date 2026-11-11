@@ -1,0 +1,55 @@
+main {
+    display: grid;
+
+    .swap {
+        display: grid;
+
+        h1 {
+            justify-self: center;
+            align-self: center;
+            z-index: 1;
+            opacity: 1;
+            animation: fade-out 1s ease 2.5s forwards;
+        }
+
+        section {
+            article {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-sm);
+                padding: var(--space-md);
+
+                h3 {
+                    background-color: #fff176;
+                    width: fit-content;
+                }
+
+                /* Apply line-spacing of 1.6rem for h3 and its sibling p */
+                p + h3 {
+                    line-height: 1.6rem;
+                }
+            }
+        }
+
+        .sections-group {
+            opacity: 0;
+            animation: fade-in 1s ease 3s forwards;
+        }
+
+        h1, .sections-group {
+            grid-area: 1 / 1;
+        }
+    }
+}
+
+@keyframes fade-out {
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
+}
