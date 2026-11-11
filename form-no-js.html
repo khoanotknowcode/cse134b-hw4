@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="icon" href="images/logo.png">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/contact.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="experience.html">Experiences</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html"><strong>Contact Me</strong></a></li>
+                <li><a href="form-no-js.html">Form</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="swap">
+            <h1>Interested to talk?</h1>
+
+            <section>
+                <h2>Contact Me</h2>
+
+                <form action="https://httpbin.org/post" method="post">
+                    <section class="name-input">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" maxlength="50" autocomplete="name" placeholder="Name, please!" required/>
+                    </section>
+                    
+                    <section class="email-input">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" maxlength="254" autocomplete="email" placeholder="Email, please!" required/>
+                    </section>
+                    
+                    <section class="message-input">
+                        <label for="message">Message</label>
+                        <textarea 
+                            name="message" 
+                            id="message" 
+                            rows="5" 
+                            cols="30" 
+                            placeholder="Let me know about you..." 
+                            maxlength="250"
+                            required></textarea><br>
+                    </section>
+
+                    <section class="hidden">
+                        <input type="text" name="possible_bot" value="true" hidden/>
+                    </section>
+                    
+                    <section class="submit-button">
+                        <input type="submit" value="Contact">
+                    </section>
+                </form>
+
+                <section id="socials">
+                    <a href="#">@email</a>
+                    <a href="#">@instagram</a>
+                    <a href="#">@linkedin</a>
+                </section>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Khoa Le</p>
+    </footer>
+</body>
+</html>
