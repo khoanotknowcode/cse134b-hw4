@@ -16,6 +16,10 @@ img {
     --main-text-color: black;
     --main-accent-color: skyblue; /* links, button, :hover */
     --font-main: "Comic Sans MS", system-ui, sans-serif;
+    --font-size-sm: 0.5rem;
+    --font-size-sm-md: 0.75rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 2rem;
     --space-x-sm: 0.25rem;
     --space-sm: 0.5rem;
     --space-sm-md: 0.75rem;

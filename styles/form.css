@@ -1,0 +1,194 @@
+main {
+    display: grid;
+
+    /* select the first section's child of .swap */
+    .swap > section {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-lg);
+        opacity: 1; /* CHANGE BACK TO 0 WHEN DONE */
+        animation: fade-in 1s ease 3s forwards;
+
+        h2 {
+            align-self: center;
+            font-size: var(--space-lg);
+        }
+
+        form {
+            align-self: center;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+            border: thick solid black;
+            border-radius: var(--space-lg);
+            padding: var(--space-lg);
+            width: min(100%, 20rem);
+
+            section {
+                display: flex;
+                flex-direction: column;
+                gap: var(--space-sm);
+
+                label {
+                    font-size: 1.1rem;
+                }
+
+                input, textarea {
+                    font-family: inherit;
+                    border: 2px solid black;
+                    border-radius: var(--space-x-sm);
+                    padding: var(--space-x-sm);
+                }
+
+                textarea {
+                    resize: vertical;
+                }
+
+                input:focus, textarea:focus {
+                    outline: none;
+                    border-width: 3px;
+                }
+
+                /* Target the input having type: submit */
+                input[type="submit"] {
+                    align-self: center;
+                    background: linear-gradient(to right, #f5b971, #ee4f72);
+                    color: whitesmoke;
+                    font: inherit;
+                    font-weight: bold;
+                    letter-spacing: 0.15em;
+                    border: none;
+                    border-radius: var(--space-md);
+                    padding: var(--space-sm-md) var(--space-lg-md);
+                    box-shadow: 0 0 0 transparent;
+                    transition: box-shadow 0.5s ease, transform 0.3s ease;
+                    cursor: pointer;
+                }
+
+                input[type="submit"]:hover {
+                    box-shadow: 0 10px 30px #ee4f7255;
+                    transform: scale(1.05);
+                }
+            }
+
+            /* Add red asterisk to indicate required fields */
+            section:has(:required) label::after {
+                content: "*";
+                color: crimson;
+            }
+
+            .name-input {
+                input[type="text"]:user-valid {
+                    border-color: #198754;
+                }
+
+                /* Keep the box remain green when placeholder disappears */
+                input[type="text"]:valid:not(:placeholder-shown) {
+                    border-color: #198754;
+                }
+                
+                /* Remove the green border after unfocusing */
+                input[type="text"]:user-valid:not(:focus) {
+                    border-color: inherit;
+                }
+
+                input[type="text"]:user-invalid {
+                    border-color: #ee4f72;
+                }
+
+                /* Hide error message until user-invalid triggers */
+                .name-error-message {
+                    display: none;
+                }
+
+                input[type="text"]:user-invalid + .name-error-message {
+                    display: block;
+                    font-size: var(--font-size-sm-md);
+                    color: #ee4f72;
+                }
+            }
+
+            .email-input {
+                input[type="email"]:user-valid {
+                    border-color: #198754;
+                }
+
+                input[type="email"]:valid:not(:placeholder-shown) {
+                    border-color: #198754;
+                }
+
+                input[type="email"]:user-valid:not(:focus) {
+                    border-color: inherit;
+                }
+
+                input[type="email"]:user-invalid {
+                    border-color: #ee4f72;
+                }
+
+                .email-error-message {
+                    display: none;
+                }
+
+                input[type="email"]:user-invalid + .email-error-message {
+                    display: block;
+                    font-size: var(--font-size-sm-md);
+                    color: #ee4f72;
+                }
+            }
+        }
+
+        #socials {
+            align-self: center;
+            display: flex;
+            justify-content: space-around;
+
+            a {
+                font-size: 1.2rem;
+                text-decoration: none;
+                color: black;
+                padding: var(--space-x-sm) var(--space-sm);
+                border-radius: var(--space-sm) var(--space-sm);
+            }
+            
+            a:hover:not(:focus) {
+                font-weight: bold;
+                text-decoration: underline wavy;
+                text-decoration-thickness: 2px;
+                text-decoration-skip-ink: none;
+            }
+
+            a:focus {
+                background-color: gray;
+            }
+        }
+    }
+
+    .swap {
+        display: grid;
+
+        h1 {
+            justify-self: center;
+            align-self: center;
+            z-index: 1;
+            opacity: 0; /* CHANGE BACK TO 1 WHEN DONE */
+            animation: fade-out 1s ease 2.5s forwards;
+        }
+
+        h1, section {
+            grid-area: 1/1;
+        }
+    }
+}
+/*
+@keyframes fade-out {
+    to {
+        opacity: 0;
+    }    
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
+}
+*/

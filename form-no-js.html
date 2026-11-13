@@ -6,7 +6,7 @@
     <title>Form</title>
     <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/contact.css">
+    <link rel="stylesheet" href="styles/form.css">
 </head>
 <body>
     <header>
@@ -16,8 +16,8 @@
                 <li><a href="about.html">About Me</a></li>
                 <li><a href="experience.html">Experiences</a></li>
                 <li><a href="project.html">Projects</a></li>
-                <li><a href="contact.html"><strong>Contact Me</strong></a></li>
-                <li><a href="form-no-js.html">Form</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+                <li><a href="form-no-js.html"><strong>Form</strong></a></li>
             </ul>
         </nav>
     </header>
@@ -31,12 +31,14 @@
                 <form action="https://httpbin.org/post" method="post">
                     <section class="name-input">
                         <label for="name">Name</label>
-                        <input type="text" name="name" id="name" maxlength="50" autocomplete="name" placeholder="Name, please!" required/>
+                        <input type="text" name="name" id="name" minlength="1" maxlength="100" autocomplete="name" placeholder="Enter your name" required/>
+                        <span class="name-error-message">Must be between 1 and 100 characters.</span>
                     </section>
                     
                     <section class="email-input">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" maxlength="254" autocomplete="email" placeholder="Email, please!" required/>
+                        <input type="email" name="email" id="email" maxlength="254" autocomplete="email" placeholder="Enter your email" required/>
+                        <span class="email-error-message">Not an email!</span>
                     </section>
                     
                     <section class="message-input">
@@ -47,8 +49,8 @@
                             rows="5" 
                             cols="30" 
                             placeholder="Let me know about you..." 
-                            maxlength="250"
-                            required></textarea><br>
+                            minlength="10"
+                            maxlength="1000"></textarea><br>
                     </section>
 
                     <section class="hidden">
