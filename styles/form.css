@@ -48,27 +48,6 @@ main {
                     outline: none;
                     border-width: 3px;
                 }
-
-                /* Target the input having type: submit */
-                input[type="submit"] {
-                    align-self: center;
-                    background: linear-gradient(to right, #f5b971, #ee4f72);
-                    color: whitesmoke;
-                    font: inherit;
-                    font-weight: bold;
-                    letter-spacing: 0.15em;
-                    border: none;
-                    border-radius: var(--space-md);
-                    padding: var(--space-sm-md) var(--space-lg-md);
-                    box-shadow: 0 0 0 transparent;
-                    transition: box-shadow 0.5s ease, transform 0.3s ease;
-                    cursor: pointer;
-                }
-
-                input[type="submit"]:hover {
-                    box-shadow: 0 10px 30px #ee4f7255;
-                    transform: scale(1.05);
-                }
             }
 
             /* Add red asterisk to indicate required fields */
@@ -97,11 +76,11 @@ main {
                 }
 
                 /* Hide error message until user-invalid triggers */
-                .name-error-message {
+                #non-js-name-error-message {
                     display: none;
                 }
 
-                input[type="text"]:user-invalid + .name-error-message {
+                input[type="text"]:user-invalid + #non-js-name-error-message {
                     display: block;
                     font-size: var(--font-size-sm-md);
                     color: #ee4f72;
@@ -125,14 +104,71 @@ main {
                     border-color: #ee4f72;
                 }
 
-                .email-error-message {
+                #non-js-email-error-message {
                     display: none;
                 }
 
-                input[type="email"]:user-invalid + .email-error-message {
+                input[type="email"]:user-invalid + #non-js-email-error-message {
                     display: block;
                     font-size: var(--font-size-sm-md);
                     color: #ee4f72;
+                }
+            }
+
+            .message-input {
+                textarea:user-valid {
+                    border-color: #198754;
+                }
+
+                textarea:valid:not(:placeholder-shown) {
+                    border-color: #198754;
+                }
+
+                textarea:user-valid:not(:focus) {
+                    border-color: inherit;
+                }
+
+                textarea:user-invalid {
+                    border-color: #ee4f72;
+                }
+
+                #non-js-message-error-message {
+                    display: none;
+                }
+
+                textarea:user-invalid + #non-js-message-error-message {
+                    display: block;
+                    font-size: var(--font-size-sm-md);
+                    color: #ee4f72;
+                }
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            .submit-button {
+                margin-top: var(--space-sm);
+
+                /* Target the input having type: submit */
+                input[type="submit"] {
+                    align-self: center;
+                    background: linear-gradient(to right, #f5b971, #ee4f72);
+                    color: whitesmoke;
+                    font: inherit;
+                    font-weight: bold;
+                    letter-spacing: 0.15em;
+                    border: none;
+                    border-radius: var(--space-md);
+                    padding: var(--space-sm-md) var(--space-lg-md);
+                    box-shadow: 0 0 0 transparent;
+                    transition: box-shadow 0.5s ease, transform 0.3s ease;
+                    cursor: pointer;
+                }
+
+                input[type="submit"]:hover {
+                    box-shadow: 0 10px 30px #ee4f7255;
+                    transform: scale(1.05);
                 }
             }
         }

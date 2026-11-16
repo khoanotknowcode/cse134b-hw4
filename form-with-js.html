@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Form</title>
+    <link rel="icon" href="images/logo.png">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/form-js.css">
+    <script src="scripts/form.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="experience.html">Experiences</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+                <li><a href="form-no-js.html">Form</a></li>
+                <li><a href="form-with-js.html"><strong>JS Form</strong></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="swap">
+            <h1>Interested to talk?</h1>
+
+            <section>
+                <h2>Contact Me</h2>
+
+                <form id="contact-form" action="https://httpbin.org/post" method="post">
+                    <section class="name-input">
+                        <label for="name">Name</label>
+                        <input type="text" 
+                                name="name" 
+                                id="name" 
+                                minlength="1" 
+                                maxlength="100" 
+                                autocomplete="name" 
+                                placeholder="Enter your name" 
+                                aria-describedby="name-error-message" 
+                                aria-live="polite" 
+                                required/>
+                        <span id="non-js-name-error-message">Name: 1 - 100 characters.</span>
+                    </section>
+                    
+                    <section class="email-input">
+                        <label for="email">Email</label>
+                        <input type="email" 
+                                name="email" 
+                                id="email" 
+                                maxlength="254" 
+                                autocomplete="email" 
+                                placeholder="Enter your email" 
+                                aria-describedby="email-error-message" 
+                                aria-live="polite" 
+                                required/>
+                        <span id="non-js-email-error-message">Email: Follow "name@example.com".</span>
+                    </section>
+                    
+                    <section class="message-input">
+                        <label for="message">Message</label>
+                        <textarea 
+                            name="message" 
+                            id="message" 
+                            rows="5" 
+                            cols="30" 
+                            placeholder="Let me know about you..." 
+                            minlength="10" 
+                            maxlength="1000" 
+                            aria-describedby="message-info-message message-error-message" 
+                            aria-live="polite" 
+                            required></textarea>
+                        <span id="non-js-message-error-message">Message: At least 10 characters.</span>
+                    </section>
+
+                    <section class="validation-area" hidden>
+                        <output id="error-output" name="error-output" form="contact-form" for="name email message">
+                            <p>&#9940; Errors</p>
+                            <ul>
+                                <li id="name-error-message"></li>
+                                <li id="email-error-message"></li>
+                                <li id="message-error-message"></li>
+                            </ul>
+                        </output>
+
+                        <output id="info-output" name="info-output" form="contact-form" for="name email message">
+                            <p>&#9432; Info</p>
+                            <ul>
+                                <li id="message-info-message">Message: 1000 characters remain</li>
+                            </ul>
+                        </output>
+                    </section>
+
+                    <section class="hidden">
+                        <input type="text" name="possible_bot" value="true" hidden/>
+                        <input id="form-errors" type="text" name="form-errors" value="" hidden>
+                    </section>
+                    
+                    <section class="submit-button">
+                        <input id="submit" type="submit" value="Contact">
+                    </section>
+                </form>
+
+                <section id="socials">
+                    <a href="#">@email</a>
+                    <a href="#">@instagram</a>
+                    <a href="#">@linkedin</a>
+                </section>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2026 Khoa Le</p>
+    </footer>
+</body>
+</html>
