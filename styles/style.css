@@ -30,6 +30,11 @@ img {
     --border-size: 3px;
 }
 
+:root[data-theme="dark"] {
+    --main-bg-color: #1e1e1e;
+    --main-text-color: #f5f5f5;
+}
+
 /* Base Styles */
 body {
     display: flex;
@@ -40,6 +45,7 @@ body {
     font-family: var(--font-main);
     color: var(--main-text-color);
     background-color: var(--main-bg-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header, main, footer {
@@ -48,21 +54,26 @@ header, main, footer {
 
 header {
     padding: var(--space-md) 0;
-    border: var(--border-size) solid black;
+    border: var(--border-size) solid var(--main-text-color);
     border-radius: var(--space-md);
+    position: sticky;
+    top: 1rem;
+    z-index: 100;
+    background-color: var(--main-bg-color);
 
     nav {
         ul {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
+            align-items: center;
             gap: var(--space-sm); /* Give space between nav elements */
             list-style: none;
 
             li {
                 a {
                     text-decoration: none;
-                    color: black;
+                    color: var(--main-text-color);
                     padding: var(--space-x-sm) var(--space-sm);
                     border-radius: var(--space-sm) var(--space-sm);
                 }
@@ -87,11 +98,23 @@ main {
 
 footer {
     padding: var(--space-md) 0;
-    border-top: var(--border-size) solid black;
+    border-top: var(--border-size) solid var(--main-text-color);
+}
+
+/* Base Transitions for Theme Switching */
+*, *::before, *::after {
+    transition: background-color 0.3s ease, color 0.3s ease,
+                border-color 0.3s ease, opacity 0.3s ease;
 }
 
 @media (min-width: 768px) {
     body {
         padding: var(--space-md) 10%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
     }
 }

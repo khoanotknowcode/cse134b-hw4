@@ -19,7 +19,7 @@ main {
             display: flex;
             flex-direction: column;
             gap: var(--space-md);
-            border: thick solid black;
+            border: thick solid var(--main-text-color);
             border-radius: var(--space-lg);
             padding: var(--space-lg);
             width: min(100%, 20rem);
@@ -35,7 +35,7 @@ main {
 
                 input, textarea {
                     font-family: inherit;
-                    border: 2px solid black;
+                    border: 2px solid var(--main-text-color);
                     border-radius: var(--space-x-sm);
                     padding: var(--space-x-sm);
                 }
@@ -181,7 +181,7 @@ main {
             a {
                 font-size: 1.2rem;
                 text-decoration: none;
-                color: black;
+                color: var(--main-text-color);
                 padding: var(--space-x-sm) var(--space-sm);
                 border-radius: var(--space-sm) var(--space-sm);
             }

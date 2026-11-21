@@ -1,0 +1,40 @@
+
+#theme {
+    color: var(--main-text-color);
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    padding: 0;
+
+    #sun {
+        position: static;
+        opacity: 1;
+    }
+
+    #moon {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+    }
+
+    #sun, #moon {
+        display: block;
+        width: var(--space-lg-md);
+        height: var(--space-lg-md);
+        padding: 0;
+        margin: 0;
+    }
+}
+
+:root[data-theme="dark"] {
+    #theme {
+        #sun {
+            opacity: 0;
+        }
+
+        #moon {
+            opacity: 1;
+        }
+    }
+}
