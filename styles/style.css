@@ -33,6 +33,10 @@ img {
 :root[data-theme="dark"] {
     --main-bg-color: #1e1e1e;
     --main-text-color: #f5f5f5;
+
+    h3 {
+        background-color: #d84b6b;
+    }
 }
 
 /* Base Styles */
@@ -107,6 +111,16 @@ footer {
                 border-color 0.3s ease, opacity 0.3s ease;
 }
 
+/* Skip intro if users are already seen */
+.skip-intro .swap h1, .skip-intro .hello {
+    display: none !important;
+}
+
+.skip-intro .swap > section, .skip-intro .sections-group, .skip-intro .welcome {
+    animation: none !important;
+    opacity: 1 !important;
+}
+
 @media (min-width: 768px) {
     body {
         padding: var(--space-md) 10%;
@@ -117,4 +131,14 @@ footer {
     * {
         transition: none !important;
     }
+
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
+}
+
+@view-transition {
+    navigation: auto;
 }

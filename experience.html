@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khoa's Experiences</title>
-    <!-- Early load theme to prevent flash reload -->
     <script>
+        // Early load theme to prevent flash reload
         try {
             const theme = localStorage.getItem('theme');
             if (theme) {
                 document.documentElement.setAttribute('data-theme', theme);
             }
-        } catch (error) {
-            
-        }
+        } catch (error) {}
+
+        // Skip intro animation after first view in this tab
+        try {
+            if (sessionStorage.getItem('introSeen')) {
+                document.documentElement.classList.add('skip-intro');
+            } else {
+                sessionStorage.setItem('introSeen', '1');
+            }
+        } catch (error) {}
     </script>
     <link rel="icon" href="images/logo.png">
     <link rel="stylesheet" href="styles/style.css">
