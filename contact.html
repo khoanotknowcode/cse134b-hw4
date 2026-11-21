@@ -15,10 +15,11 @@
 
         // Skip intro animation after first view in this tab
         try {
-            if (sessionStorage.getItem('introSeen')) {
+            const introKey = 'introSeen:' + location.pathname;
+            if (sessionStorage.getItem(introKey)) {
                 document.documentElement.classList.add('skip-intro');
             } else {
-                sessionStorage.setItem('introSeen', '1');
+                sessionStorage.setItem(introKey, '1');
             }
         } catch (error) {}
     </script>
